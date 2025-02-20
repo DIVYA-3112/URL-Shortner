@@ -1,5 +1,5 @@
 const express = require('express');
-const { createShortUrl, redirectToLongUrl } = require("../controllers/urlController");
+const { createShortUrl, redirectToLongUrl, analytics, getall } = require("../controllers/urlController");
 
 const router = express.Router();
 
@@ -8,5 +8,9 @@ router.post('/shorten', createShortUrl);
 
 // Route to redirect to the original URL
 router.get('/:shortUrl', redirectToLongUrl);
+
+router.get('/analytics/:shortUrl', analytics);
+
+router.get('/getall', getall);
 
 module.exports = router;
