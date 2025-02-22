@@ -20,6 +20,7 @@
   "homepage": "https://github.com/DIVYA-3112/URL-Shortner#readme",
   "dependencies": {
     "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
     "express": "^4.21.2",
     "mongoose": "^8.10.1",
     "nodemon": "^3.1.9",
