@@ -3,6 +3,7 @@ const shortid = require('shortid');
 const Url = require('../models/modelUrl');
 
 const createShortUrl = async (req, res) => {
+    const allUrls = await Url.find({});
     const { url } = req.body;
     try {
         const urlCode = shortid.generate();
@@ -11,7 +12,7 @@ const createShortUrl = async (req, res) => {
             originalUrl: url,
         });
         console.log(urlCode);
-        res.json(url);
+        res.render('home', { urls: allUrls });
     } catch (err) {
         console.error(err);
         res.status(500).json('Server error');
@@ -69,5 +70,6 @@ const getall = async (req, res) => {
         res.status(500).json('Server error');
     }
 };
+
 
 module.exports = { createShortUrl, redirectToLongUrl, analytics, getall };
