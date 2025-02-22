@@ -36,7 +36,7 @@ const redirectToLongUrl = async (req, res) => {
         if (url) {
             return res.redirect(url.originalUrl);
         } else {
-            res.status(404).json('No URL found');
+            res.status(404).json('No URL fOund');
         }
     } catch (err) {
         console.error(err);
@@ -62,6 +62,7 @@ const analytics = async (req, res) => {
 const getall = async (req, res) => {
     try {
         const urls = await Url.find();
+        console.log(urls);
         res.json(urls);
     } catch (err) {
         console.error(err);
@@ -69,4 +70,4 @@ const getall = async (req, res) => {
     }
 };
 
-module.exports = { createShortUrl, redirectToLongUrl, analytics, getall};
+module.exports = { createShortUrl, redirectToLongUrl, analytics, getall };
